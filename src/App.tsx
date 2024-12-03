@@ -1,8 +1,8 @@
 import "devextreme/dist/css/dx.light.css";
-import Populations from "./components/Populations";
+import PopulationChart from "./components/PopulationChart";
 
 function App() {
-  return <Populations />;
+  return <PopulationChart />;
 }
 
 export default App;

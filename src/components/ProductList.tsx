@@ -1,8 +1,7 @@
 import { List } from "devextreme-react";
-import React from "react";
 import { products } from "../data/product";
 
-const Products = () => {
+const ProductList = () => {
   return (
     <List
       dataSource={products}
@@ -11,4 +10,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductList;

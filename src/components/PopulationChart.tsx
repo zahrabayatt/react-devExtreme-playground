@@ -1,5 +1,4 @@
 import "devextreme/dist/css/dx.light.css";
-import React from "react";
 import Chart, {
   ArgumentAxis,
   Label,
@@ -8,7 +7,7 @@ import Chart, {
 } from "devextreme-react/chart";
 import { populations } from "../data/populations";
 
-const Populations = () => {
+const PopulationChart = () => {
   return (
     <Chart
       title="World Population by Decade"
@@ -56,4 +55,4 @@ const Populations = () => {
   );
 };
 
-export default Populations;
+export default PopulationChart;
