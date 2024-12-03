@@ -1,13 +1,8 @@
 import "devextreme/dist/css/dx.light.css";
-import "./App.css";
-import Products from "./components/Products";
+import Populations from "./components/Populations";
 
 function App() {
-  return (
-    <div className="App">
-      <Products />
-    </div>
-  );
+  return <Populations />;
 }
 
 export default App;
