@@ -67,3 +67,14 @@
   line-height: 1.5;
   width: 30px;
 }
+
+.tag-text {
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: 1px solid #e0e0e0;
+  width: fit-content;
+}
+
+.label-description {
+  min-width: 55px;
+}
