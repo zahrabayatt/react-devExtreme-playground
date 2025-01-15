@@ -15,11 +15,32 @@ const Tools: React.FC = () => {
         className="main-tool-button"
         icon="menu"
         onClick={toggleOptions}
+        width={40}
+        height={40}
+        style={{ borderRadius: "50%" }}
       />
       <div className={`options-container ${isOpen ? "open" : ""}`}>
-        <Button className="option-button" icon="save" />
-        <Button className="option-button" icon="edit" />
-        <Button className="option-button" icon="delete" />
+        <Button
+          className="option-button"
+          icon="save"
+          width={40}
+          height={40}
+          style={{ borderRadius: "50%" }}
+        />
+        <Button
+          className="option-button"
+          icon="edit"
+          width={40}
+          height={40}
+          style={{ borderRadius: "50%" }}
+        />
+        <Button
+          className="option-button"
+          icon="trash"
+          width={40}
+          height={40}
+          style={{ borderRadius: "50%" }}
+        />
       </div>
     </div>
   );
