@@ -1,9 +1,9 @@
 import "devextreme/dist/css/dx.light.css";
 import "./App.css";
-import Tools from "./components/Tools/Tools";
+import SpeedDialTools from "./components/SpeedDialTools/SpeedDialTools";
 
 function App() {
-  return <Tools />;
+  return <SpeedDialTools />;
 }
 
 export default App;
