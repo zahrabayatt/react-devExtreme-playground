@@ -1,11 +1,9 @@
 import "devextreme/dist/css/dx.light.css";
 import "./App.css";
-import PieChartSample from "./components/PieChartSample";
+import Tools from "./components/Tools/Tools";
 
 function App() {
-  return (
-    <PieChartSample />
-  );
+  return <Tools />;
 }
 
 export default App;

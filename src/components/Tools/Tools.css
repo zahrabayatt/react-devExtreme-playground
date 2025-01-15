@@ -1,0 +1,26 @@
+.tool-container {
+  position: relative;
+}
+
+.main-tool-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.options-container {
+  position: absolute;
+  top: 0;
+  left: -200px; /* Start off-screen */
+  display: flex;
+  transition: left 0.3s ease-in-out;
+}
+
+.options-container.open {
+  left: 40px; /* Slide in to the right of the main button */
+}
+
+.option-button {
+  margin-left: 10px;
+}

@@ -78,3 +78,7 @@
 .label-description {
   min-width: 55px;
 }
+
+body {
+  text-align: center;
+}
