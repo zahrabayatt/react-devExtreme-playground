@@ -1,6 +1,9 @@
 .tool-container {
   position: relative;
   margin: 50px;
+  overflow: hidden;
+  height: 40px;
+}
 
 .main-tool-button {
   position: absolute;
@@ -12,7 +15,7 @@
 .options-container {
   position: absolute;
   top: 0;
-  left: -200px; /* Start off-screen */
+  left: -110px; /* Start off-screen */
   display: flex;
   transition: left 0.3s ease-in-out;
 }
