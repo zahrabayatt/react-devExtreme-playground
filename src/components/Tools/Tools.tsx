@@ -2,7 +2,25 @@ import React, { useState } from "react";
 import { Button } from "devextreme-react/button";
 import "./Tools.css"; // Import your CSS for animations
 
-const Tools: React.FC = () => {
+interface ToolConfig {
+  mainButton: {
+    icon: string;
+    width: number;
+    height: number;
+  };
+  options: Array<{
+    icon: string;
+    width: number;
+    height: number;
+    onClick?: () => void; // Optional click handler for each option
+  }>;
+}
+
+interface ToolsProps {
+  config: ToolConfig;
+}
+
+const Tools: React.FC<ToolsProps> = ({ config }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOptions = () => {
@@ -11,36 +29,32 @@ const Tools: React.FC = () => {
 
   return (
     <div className="tool-container">
+      {/* Main Button */}
       <Button
         className="main-tool-button"
-        icon="menu"
+        icon={config.mainButton.icon}
         onClick={toggleOptions}
-        width={40}
-        height={40}
+        width={config.mainButton.width}
+        height={config.mainButton.height}
         style={{ borderRadius: "50%" }}
       />
+
+      {/* Options */}
       <div className="options-container">
-        <Button
-          className={`option-button ${isOpen ? "open" : ""}`}
-          icon="save"
-          width={40}
-          height={40}
-          style={{ borderRadius: "50%", transitionDelay: "0s" }}
-        />
-        <Button
-          className={`option-button ${isOpen ? "open" : ""}`}
-          icon="edit"
-          width={40}
-          height={40}
-          style={{ borderRadius: "50%", transitionDelay: "0.1s" }}
-        />
-        <Button
-          className={`option-button ${isOpen ? "open" : ""}`}
-          icon="trash"
-          width={40}
-          height={40}
-          style={{ borderRadius: "50%", transitionDelay: "0.2s" }}
-        />
+        {config.options.map((option, index) => (
+          <Button
+            key={index}
+            className={`option-button ${isOpen ? "open" : ""}`}
+            icon={option.icon}
+            width={option.width}
+            height={option.height}
+            style={{
+              borderRadius: "50%",
+              transitionDelay: `${index * 0.1}s`, // Staggered delay
+            }}
+            onClick={option.onClick} // Optional click handler
+          />
+        ))}
       </div>
     </div>
   );
