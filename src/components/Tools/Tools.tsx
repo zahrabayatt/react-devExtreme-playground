@@ -19,27 +19,27 @@ const Tools: React.FC = () => {
         height={40}
         style={{ borderRadius: "50%" }}
       />
-      <div className={`options-container ${isOpen ? "open" : ""}`}>
+      <div className="options-container">
         <Button
-          className="option-button"
+          className={`option-button ${isOpen ? "open" : ""}`}
           icon="save"
           width={40}
           height={40}
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: "50%", transitionDelay: "0s" }}
         />
         <Button
-          className="option-button"
+          className={`option-button ${isOpen ? "open" : ""}`}
           icon="edit"
           width={40}
           height={40}
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: "50%", transitionDelay: "0.1s" }}
         />
         <Button
-          className="option-button"
+          className={`option-button ${isOpen ? "open" : ""}`}
           icon="trash"
           width={40}
           height={40}
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: "50%", transitionDelay: "0.2s" }}
         />
       </div>
     </div>

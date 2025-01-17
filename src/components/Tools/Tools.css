@@ -1,7 +1,6 @@
 .tool-container {
   position: relative;
   margin: 50px;
-  overflow: hidden;
   height: 40px;
 }
 
@@ -15,15 +14,18 @@
 .options-container {
   position: absolute;
   top: 0;
-  left: -110px; /* Start off-screen */
+  left: 40px; /* Position to the right of the main button */
   display: flex;
-  transition: left 0.3s ease-in-out;
-}
-
-.options-container.open {
-  left: 40px; /* Slide in to the right of the main button */
 }
 
 .option-button {
   margin-left: 10px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.option-button.open {
+  opacity: 1;
+  transform: translateX(0);
 }
