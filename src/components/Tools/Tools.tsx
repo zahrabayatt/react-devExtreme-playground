@@ -56,7 +56,7 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
       {optionStack.length > 0 ? (
         <Button
           className="main-tool-button"
-          icon="chevronup"
+          icon="back"
           width={config.mainButton.width}
           height={config.mainButton.height}
           onClick={handleBackClick}
