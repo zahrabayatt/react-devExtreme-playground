@@ -53,28 +53,26 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
 
   return (
     <div className="tool-container">
-      {/* Main Button */}
-      <Button
-        className="main-tool-button"
-        icon={config.mainButton.icon}
-        onClick={toggleOptions}
-        width={config.mainButton.width}
-        height={config.mainButton.height}
-        style={{ borderRadius: "50%" }}
-      />
+      {optionStack.length > 0 ? (
+        <Button
+          className="main-tool-button"
+          icon="chevronup"
+          width={config.mainButton.width}
+          height={config.mainButton.height}
+          onClick={handleBackClick}
+        />
+      ) : (
+        <Button
+          className="main-tool-button"
+          icon={config.mainButton.icon}
+          onClick={toggleOptions}
+          width={config.mainButton.width}
+          height={config.mainButton.height}
+        />
+      )}
 
       {/* Options */}
       <div className="options-container">
-        {optionStack.length > 0 && (
-          <Button
-            className={`option-button ${isOpen ? "open" : ""}`}
-            icon="back"
-            width={config.mainButton.width}
-            height={config.mainButton.height}
-            style={{ borderRadius: "50%" }}
-            onClick={handleBackClick}
-          />
-        )}
         {currentOptions.map((option, index) => (
           <Button
             key={index}
@@ -83,7 +81,6 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
             width={option.width}
             height={option.height}
             style={{
-              borderRadius: "50%",
               transitionDelay: `${index * 0.1}s`, // Staggered delay
             }}
             onClick={() => handleOptionClick(option)}

@@ -7,36 +7,36 @@ function App() {
   const toolConfig = {
     mainButton: {
       icon: "menu",
-      width: 40,
-      height: 40,
+      width: 30,
+      height: 30,
     },
     options: [
       {
         icon: "folder",
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         options: [
           {
             icon: "doc",
-            width: 40,
-            height: 40,
+            width: 30,
+            height: 30,
             onClick: () => alert("Document clicked!"),
           },
           {
             icon: "image",
-            width: 40,
-            height: 40,
+            width: 30,
+            height: 30,
             options: [
               {
                 icon: "photo",
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 onClick: () => alert("Photo clicked!"),
               },
               {
                 icon: "coffee",
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 onClick: () => alert("Gallery clicked!"),
               },
             ],
@@ -45,38 +45,38 @@ function App() {
       },
       {
         icon: "share",
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         onClick: () => alert("share clicked!"),
       },
       {
         icon: "edit",
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         options: [
           {
             icon: "datapie",
-            width: 40,
-            height: 40,
+            width: 30,
+            height: 30,
             onClick: () => alert("Datapie clicked!"),
             options: [
               {
                 icon: "datapie",
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               },
             ],
           },
           {
             icon: "isnotblank",
-            width: 40,
-            height: 40,
+            width: 30,
+            height: 30,
             onClick: () => alert("recycle clicked!"),
             options: [
               {
                 icon: "isnotblank",
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               },
             ],
           },

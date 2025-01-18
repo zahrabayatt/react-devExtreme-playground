@@ -1,7 +1,5 @@
 .tool-container {
   position: relative;
-  margin: 50px;
-  height: 40px;
 }
 
 .main-tool-button {
@@ -9,27 +7,39 @@
   top: 0;
   left: 0;
   z-index: 10;
+  font-size: 30px;
+  border: 1px solid gray;
 }
 
 .options-container {
   position: absolute;
-  top: 0;
-  left: 40px; /* Position to the right of the main button */
+  top: 30px; /* Position below the main button */
+  left: 0;
   display: flex;
+  flex-direction: column; /* Display options vertically */
 }
 
 .option-button {
-  margin-left: 10px;
+  margin-top: 5px; /* Add space between options */
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateY(-20px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border: 1px solid gray; /* Add border to the option buttons */
 }
 
 .option-button.open {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .back-button {
-  margin-right: 10px; /* Add some space between the back button and the options */
+  margin-bottom: 10px; /* Add some space between the back button and the options */
+}
+
+.dx-button-content {
+  padding: 0 !important;
+}
+
+.dx-button-mode-contained .dx-icon {
+  font-size: 13px;
 }
