@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { Button } from "devextreme-react/button";
 import "./Tools.css"; // Import your CSS for animations
 
@@ -23,11 +23,28 @@ interface ToolsProps {
   config: ToolConfig;
 }
 
-const Tools: React.FC<ToolsProps> = ({ config }) => {
+export interface ToolsRef {
+  reset: () => void; // Expose the reset function to the parent
+}
+
+const Tools = forwardRef<ToolsRef, ToolsProps>(({ config }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentOptions, setCurrentOptions] = useState<ToolOption[]>(config.options);
   const [optionStack, setOptionStack] = useState<ToolOption[][]>([]);
   const [selectedOption, setSelectedOption] = useState<ToolOption | null>(null);
+
+  // Reset the component to its initial state
+  const reset = () => {
+    setIsOpen(false);
+    setCurrentOptions(config.options);
+    setOptionStack([]);
+    setSelectedOption(null);
+  };
+
+  // Expose the reset function to the parent via ref
+  useImperativeHandle(ref, () => ({
+    reset,
+  }));
 
   const toggleOptions = () => {
     setIsOpen(!isOpen);
@@ -105,6 +122,6 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Tools;

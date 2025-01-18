@@ -1,9 +1,18 @@
 import "devextreme/dist/css/dx.light.css";
 import "./App.css";
-import Tools from "./components/tools/Tools";
+import Tools, { ToolsRef } from "./components/tools/Tools";
+import { Button } from "devextreme-react";
+import { useRef } from "react";
 
 function App() {
-  // Example configuration for the Tools component
+  const toolsRef = useRef<ToolsRef>(null);
+
+  const handleReset = () => {
+    if (toolsRef.current) {
+      toolsRef.current.reset(); // Call the reset function
+    }
+  };
+
   const toolConfig = {
     mainButton: {
       icon: "menu",
@@ -12,95 +21,43 @@ function App() {
     },
     options: [
       {
-        icon: "doc",
-        width: 30,
-        height: 30,
-        onClick: () => console.log("Document clicked!"),
-      },
-      {
-        icon: "image",
-        width: 30,
-        height: 30,
-        onClick: () => console.log("Document clicked!"),
-      },
-      {
         icon: "folder",
         width: 30,
         height: 30,
         options: [
           {
-            icon: "doc",
+            icon: "file",
             width: 30,
             height: 30,
-            onClick: () => console.log("Document clicked!"),
+            onClick: () => {
+              console.log("File clicked");
+            },
           },
           {
-            icon: "image",
+            icon: "trash",
             width: 30,
             height: 30,
-            options: [
-              {
-                icon: "photo",
-                width: 30,
-                height: 30,
-                onClick: () => console.log("Photo clicked!"),
-              },
-              {
-                icon: "coffee",
-                width: 30,
-                height: 30,
-                onClick: () => console.log("Gallery clicked!"),
-              },
-            ],
+            onClick: () => {
+              console.log("trash clicked");
+            },
           },
         ],
       },
       {
-        icon: "share",
+        icon: "save",
         width: 30,
         height: 30,
-        onClick: () => console.log("share clicked!"),
-      },
-      {
-        icon: "edit",
-        width: 30,
-        height: 30,
-        options: [
-          {
-            icon: "datapie",
-            width: 30,
-            height: 30,
-            onClick: () => console.log("Datapie clicked!"),
-            options: [
-              {
-                icon: "datapie",
-                width: 30,
-                height: 30,
-              },
-            ],
-          },
-          {
-            icon: "isnotblank",
-            width: 30,
-            height: 30,
-            onClick: () => console.log("recycle clicked!"),
-            options: [
-              {
-                icon: "isnotblank",
-                width: 30,
-                height: 30,
-              },
-            ],
-          },
-        ],
+        onClick: () => {
+          console.log("Save clicked");
+        },
       },
     ],
   };
 
   return (
-    <div className="App">
-      <h1>Tools Component Example</h1>
-      <Tools config={toolConfig} />
+    <div>
+      <Tools config={toolConfig} ref={toolsRef} />
+      <Button text="Reset Tools" onClick={handleReset} />
     </div>
   );
 }
