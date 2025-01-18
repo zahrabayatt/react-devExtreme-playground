@@ -25,21 +25,27 @@ interface ToolsProps {
 
 const Tools: React.FC<ToolsProps> = ({ config }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentOptions, setCurrentOptions] = useState<ToolOption[]>(
-    config.options
-  );
+  const [currentOptions, setCurrentOptions] = useState<ToolOption[]>(config.options);
   const [optionStack, setOptionStack] = useState<ToolOption[][]>([]);
+  const [selectedOption, setSelectedOption] = useState<ToolOption | null>(null);
 
   const toggleOptions = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setSelectedOption(null); // Reset selected option when toggling options
+    }
   };
 
   const handleOptionClick = (option: ToolOption) => {
     if (option.options) {
       setOptionStack([...optionStack, currentOptions]);
       setCurrentOptions(option.options);
-    } else if (option.onClick) {
-      option.onClick();
+    } else {
+      setSelectedOption(option);
+      setIsOpen(false); // Close the options container
+      if (option.onClick) {
+        option.onClick();
+      }
     }
   };
 
@@ -53,7 +59,15 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
 
   return (
     <div className="tool-container">
-      {optionStack.length > 0 ? (
+      {selectedOption ? (
+        <Button
+          className="main-tool-button"
+          icon={selectedOption.icon}
+          width={config.mainButton.width}
+          height={config.mainButton.height}
+        //onClick={() => setSelectedOption(null)} // Reset selected option on click
+        />
+      ) : optionStack.length > 0 ? (
         <Button
           className="main-tool-button"
           icon="back"
@@ -74,9 +88,8 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
       {/* Options */}
       <div className={`options-container ${isOpen ? "open" : ""}`}>
         {currentOptions.map((option, index) => (
-          <>
+          <React.Fragment key={index}>
             <Button
-              key={index}
               className={`option-button ${isOpen ? "open" : ""}`}
               icon={option.icon}
               width={option.width}
@@ -87,7 +100,7 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
               onClick={() => handleOptionClick(option)}
             />
             {index !== currentOptions.length - 1 && <div className="divider" />}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

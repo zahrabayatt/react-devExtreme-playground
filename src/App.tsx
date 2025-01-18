@@ -15,13 +15,13 @@ function App() {
         icon: "doc",
         width: 30,
         height: 30,
-        onClick: () => alert("Document clicked!"),
+        onClick: () => console.log("Document clicked!"),
       },
       {
         icon: "image",
         width: 30,
         height: 30,
-        onClick: () => alert("Document clicked!"),
+        onClick: () => console.log("Document clicked!"),
       },
       {
         icon: "folder",
@@ -32,7 +32,7 @@ function App() {
             icon: "doc",
             width: 30,
             height: 30,
-            onClick: () => alert("Document clicked!"),
+            onClick: () => console.log("Document clicked!"),
           },
           {
             icon: "image",
@@ -43,13 +43,13 @@ function App() {
                 icon: "photo",
                 width: 30,
                 height: 30,
-                onClick: () => alert("Photo clicked!"),
+                onClick: () => console.log("Photo clicked!"),
               },
               {
                 icon: "coffee",
                 width: 30,
                 height: 30,
-                onClick: () => alert("Gallery clicked!"),
+                onClick: () => console.log("Gallery clicked!"),
               },
             ],
           },
@@ -59,7 +59,7 @@ function App() {
         icon: "share",
         width: 30,
         height: 30,
-        onClick: () => alert("share clicked!"),
+        onClick: () => console.log("share clicked!"),
       },
       {
         icon: "edit",
@@ -70,7 +70,7 @@ function App() {
             icon: "datapie",
             width: 30,
             height: 30,
-            onClick: () => alert("Datapie clicked!"),
+            onClick: () => console.log("Datapie clicked!"),
             options: [
               {
                 icon: "datapie",
@@ -83,7 +83,7 @@ function App() {
             icon: "isnotblank",
             width: 30,
             height: 30,
-            onClick: () => alert("recycle clicked!"),
+            onClick: () => console.log("recycle clicked!"),
             options: [
               {
                 icon: "isnotblank",
