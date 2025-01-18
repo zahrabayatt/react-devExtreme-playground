@@ -72,19 +72,22 @@ const Tools: React.FC<ToolsProps> = ({ config }) => {
       )}
 
       {/* Options */}
-      <div className="options-container">
+      <div className={`options-container ${isOpen ? "open" : ""}`}>
         {currentOptions.map((option, index) => (
-          <Button
-            key={index}
-            className={`option-button ${isOpen ? "open" : ""}`}
-            icon={option.icon}
-            width={option.width}
-            height={option.height}
-            style={{
-              transitionDelay: `${index * 0.1}s`, // Staggered delay
-            }}
-            onClick={() => handleOptionClick(option)}
-          />
+          <>
+            <Button
+              key={index}
+              className={`option-button ${isOpen ? "open" : ""}`}
+              icon={option.icon}
+              width={option.width}
+              height={option.height}
+              style={{
+                transitionDelay: `${index * 0.1}s`, // Staggered delay
+              }}
+              onClick={() => handleOptionClick(option)}
+            />
+            {index !== currentOptions.length - 1 && <div className="divider" />}
+          </>
         ))}
       </div>
     </div>

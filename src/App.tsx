@@ -12,6 +12,18 @@ function App() {
     },
     options: [
       {
+        icon: "doc",
+        width: 30,
+        height: 30,
+        onClick: () => alert("Document clicked!"),
+      },
+      {
+        icon: "image",
+        width: 30,
+        height: 30,
+        onClick: () => alert("Document clicked!"),
+      },
+      {
         icon: "folder",
         width: 30,
         height: 30,
